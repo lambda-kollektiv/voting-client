@@ -6,6 +6,6 @@ console.log("Greetings Lord Kordano");
 const pair = ["Saron", "Masala"];
 
 React.render(
-  <Voting pair={pair} hasVoted="Saron" />,
+  <Voting pair={pair} winner="Trainspotting" />,
   document.getElementById("app")
 );
