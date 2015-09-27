@@ -1,5 +1,5 @@
 import React from "react/addons";
-import Voting from "../../src/components/Voting.jsx";
+import Voting from "../../src/components/Voting.js";
 import {expect} from "chai";
 
 const {renderIntoDocument, scryRenderedDOMComponentsWithTag, Simulate} = React.addons.TestUtils;
@@ -79,8 +79,5 @@ describe("Voting", () => {
     firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
     expect(firstButton.getDOMNode().textContent).to.equal('Saron');
   });
-
-
-  
 
 })
