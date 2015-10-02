@@ -5,7 +5,7 @@ import {Provider} from "react-redux";
 import reducer from "./reducer";
 import App from "./components/App";
 import {VotingContainer} from "./components/Voting";
-import Results from "./components/Results";
+import {ResultsContainer} from "./components/Results";
 
 const store = createStore(reducer);
 
@@ -28,7 +28,7 @@ const routes = React.createElement(
   ),
   React.createElement(
     Route,
-    {path:"/results", handler: Results}
+    {path:"/results", handler: ResultsContainer}
   )
 );
 

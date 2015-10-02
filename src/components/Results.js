@@ -1,7 +1,8 @@
 import React from "react/addons";
+import {connect} from "react-redux";
 import Winner from "./Winner";
 
-export default React.createClass({
+export const Results = React.createClass({
   mixins: [React.addons.PureRenderMixin],
   getVotes: function(entry) {
     if (this.props.tally && this.props.tally.has(entry)) {
@@ -36,3 +37,14 @@ export default React.createClass({
                         )
   }
 });
+
+function mapStateToProps(state) {
+  return {
+    pair: state.getIn(['vote', 'pair']),
+    tally: state.getIn(['vote', 'tally']),
+    winner: state.get('winner')
+  }
+}
+
+export const ResultsContainer = connect(mapStateToProps)(Results);
+
