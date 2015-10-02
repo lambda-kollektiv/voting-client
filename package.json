@@ -4,7 +4,7 @@
   "description": "A client for lunch voting",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --require ./test/test_helpers.js 'test/**/*.@(js|jsx)'",
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helpers.js 'test/*/*.@(js|jsx)'",
     "test:watch": "npm run test -- --watch"
   },
   "repository": {
@@ -38,6 +38,9 @@
   },
   "dependencies": {
     "immutable": "^3.7.5",
-    "react": "^0.13.3"
+    "material-design-lite": "^1.0.5",
+    "react": "^0.13.3",
+    "react-redux": "^3.0.1",
+    "react-router": "^0.13.3"
   }
 }

@@ -1,5 +1,6 @@
 import React from "react/addons";
-import Voting from "../../src/components/Voting.js";
+import {List} from "immutable";
+import {Voting} from "../../src/components/Voting.js";
 import {expect} from "chai";
 
 const {renderIntoDocument, scryRenderedDOMComponentsWithTag, Simulate} = React.addons.TestUtils;
@@ -17,7 +18,7 @@ describe("Voting", () => {
     expect(buttons[1].getDOMNode().textContent).to.equal("Masala");
   });
 
-  it("invokes callback when abutton is clicked", () => {
+  it("invokes callback when a button is clicked", () => {
     let votedWith;
     const vote = (entry) => votedWith = entry;
 
@@ -79,5 +80,21 @@ describe("Voting", () => {
     firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
     expect(firstButton.getDOMNode().textContent).to.equal('Saron');
   });
+
+  it("does update DOM when prop changes", () => {
+    const pair = List.of("Saron", "Masala");
+    const component = renderIntoDocument(React.createElement(Voting, {pair:pair}));
+
+    let firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
+    expect(firstButton.getDOMNode().textContent).to.equal("Saron");
+
+    const newPair = pair.set(0, "Mandy's Burger");
+    component.setProps({pair: newPair});
+    firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
+    expect(firstButton.getDOMNode().textContent).to.equal("Mandy's Burger");
+  })
+
+
+    
 
 })
