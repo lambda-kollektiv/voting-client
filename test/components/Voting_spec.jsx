@@ -95,6 +95,5 @@ describe("Voting", () => {
   })
 
 
-    
 
 })
