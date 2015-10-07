@@ -15,7 +15,7 @@ export function vote(entry) {
 
 export function next() {
   return {
-    meta: {remote: next},
+    meta: {remote: true},
     type: "NEXT"
   };
 }
